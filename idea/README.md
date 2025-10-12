@@ -77,23 +77,23 @@ It works even without an internet connection and syncs automatically once back o
 
 ## Screenshots
 
-# Main Page
+### Main Page
 <br>
   <img src="https://github.com/user-attachments/assets/2072c0c7-02ac-4129-9ee1-1595210f2c5c" width="300"/>
 <br><br>
 
-# List View
+### List View
 <br>
   <img src="https://github.com/user-attachments/assets/3093dccc-6926-4739-83ca-20e508affc91" width="300"/>
   <img src="https://github.com/user-attachments/assets/45fa7510-3383-40b2-9369-3e57fec1a19e" width="300"/>
 <br><br>
 
-# Delete Player
+### Delete Player
 <br>
   <img src="https://github.com/user-attachments/assets/9d1691a0-2969-4818-a10a-3558c974bcaa" width="300"/>
 <br><br>
   
-# Edit Player
+### Edit Player
 <br>
   <img src="https://github.com/user-attachments/assets/9b6ee07a-9407-4f6e-94bf-ef1433f9303f" width="300"/>
   <img src="https://github.com/user-attachments/assets/8abf384f-7388-4f88-8c55-53083e927bdc" width="300"/>
