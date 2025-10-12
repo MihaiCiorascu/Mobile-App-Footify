@@ -1,8 +1,8 @@
-\# ⚽ Footyfy
+# ⚽ Footyfy
 
 
 
-\## 📖 Short Description
+## 📖 Short Description
 
 
 
@@ -20,7 +20,7 @@ It works even without an internet connection and syncs automatically once back o
 
 
 
-\## 🧩 Entity: Player
+## 🧩 Entity: Player
 
 
 
@@ -54,11 +54,11 @@ It works even without an internet connection and syncs automatically once back o
 
 
 
-\## ⚙️ CRUD Operations
+## ⚙️ CRUD Operations
 
 
 
-\### \*\*Create\*\*
+### \*\*Create\*\*
 
 
 
@@ -70,7 +70,7 @@ It works even without an internet connection and syncs automatically once back o
 
 
 
-\### \*\*Read\*\*
+### \*\*Read\*\*
 
 
 
@@ -82,7 +82,7 @@ It works even without an internet connection and syncs automatically once back o
 
 
 
-\### \*\*Update\*\*
+### \*\*Update\*\*
 
 
 
@@ -92,7 +92,7 @@ It works even without an internet connection and syncs automatically once back o
 
 
 
-\### \*\*Delete\*\*
+### \*\*Delete\*\*
 
 
 
@@ -106,11 +106,11 @@ It works even without an internet connection and syncs automatically once back o
 
 
 
-\## 💾 Persistence Details
+## 💾 Persistence Details
 
 
 
-\### \*\*Local Database\*\*
+### \*\*Local Database\*\*
 
 
 
@@ -124,7 +124,7 @@ It works even without an internet connection and syncs automatically once back o
 
 
 
-\### \*\*Server Database\*\*
+### \*\*Server Database\*\*
 
 
 
@@ -140,7 +140,7 @@ It works even without an internet connection and syncs automatically once back o
 
 
 
-\## 📶 Offline Behavior
+## 📶 Offline Behavior
 
 
 
