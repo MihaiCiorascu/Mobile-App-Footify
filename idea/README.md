@@ -1,6 +1,6 @@
 # ⚽ Footyfy
 
-## 📖 Short Description
+## Short Description
 
 Footyfy helps a manager maintain a list of football players. You can add players, view all players, edit their details, and remove players who left the team.
 The app also displays simple charts, such as the number of defenders or strikers and the overall season rating for each player.
@@ -9,7 +9,7 @@ It works even without an internet connection and syncs automatically once back o
 
 
 
-## 🧩 Entity: Player
+## Entity: Player
 
 | **Field**                   | **Description**                                                                                                                                                                                                       |
 | --------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -25,7 +25,7 @@ It works even without an internet connection and syncs automatically once back o
 
 
 
-## ⚙️ CRUD Operations
+## CRUD Operations
 
 ### **Create**
 
@@ -51,7 +51,7 @@ It works even without an internet connection and syncs automatically once back o
 
 
 
-## 💾 Persistence Details
+## Persistence Details
 
 ### **Local Database**
 
@@ -68,30 +68,32 @@ It works even without an internet connection and syncs automatically once back o
 
 
 
-## 📶 Offline Behavior
+## Offline Behavior
 
 * **Create (offline):** Player is saved locally and synced via POST when online.
 * **Read (offline):** Cached player list and data remain available; a banner shows “Server is unavailable.”
 * **Update (offline):** Edits are saved locally and synced in order when online.
 * **Delete (offline):** Player is marked for deletion and hidden; deletion request is sent once reconnected.
 
-## 📸 Screenshots
+## Screenshots
 
-🏠 Main Page
+# Main Page
 <br>
   <img src="https://github.com/user-attachments/assets/2072c0c7-02ac-4129-9ee1-1595210f2c5c" width="300"/>
 <br><br>
-📋 List View
+
+# List View
 <br>
   <img src="https://github.com/user-attachments/assets/3093dccc-6926-4739-83ca-20e508affc91" width="300"/>
   <img src="https://github.com/user-attachments/assets/45fa7510-3383-40b2-9369-3e57fec1a19e" width="300"/>
 <br><br>
-🗑️ Delete Player
+
+# Delete Player
 <br>
   <img src="https://github.com/user-attachments/assets/9d1691a0-2969-4818-a10a-3558c974bcaa" width="300"/>
 <br><br>
   
-✏️ Edit Player
+# Edit Player
 <br>
   <img src="https://github.com/user-attachments/assets/9b6ee07a-9407-4f6e-94bf-ef1433f9303f" width="300"/>
   <img src="https://github.com/user-attachments/assets/8abf384f-7388-4f88-8c55-53083e927bdc" width="300"/>
