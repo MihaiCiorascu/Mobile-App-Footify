@@ -17,7 +17,7 @@ It works even without an internet connection and syncs automatically once back o
 | **name**                    | Full name                                                                                                                                                                                                             |
 | **age**                     | Age in years                                                                                                                                                                                                          |
 | **position**                | Goalkeeper, Right Back, Left Back, Center Back, Central Defensive Midfielder, Right Midfielder, Left Midfielder, Central Midfielder, Central Attacking Midfielder, Right Winger, Left Winger, Center Forward, Striker |
-| **nationality**             | Country                                                                                                                                                                                                               |
+                                                                                                                                                                                                              |
 | **rating**                  | Number from 0.0 to 10.0                                                                                                                                                                                               |
 | **shirt number**           | Number from 0 to 99                                                                                                                                                                                                   |
 | **goals**                   | Total goals (default 0)                                                                                                                                                                                               |
@@ -30,7 +30,7 @@ It works even without an internet connection and syncs automatically once back o
 
 ### **Create**
 
-* Form with: name, age, position, nationality, rating (default 5.0), jersey number, goals (default 0), image (default anonymous).
+* Form with: name, age, position, shirt number, rating (default 5.0), goals (default 0), image (default anonymous).
 * Client validates inputs; server re-validates.
 * On success: new player card appears and charts update.
 
@@ -42,7 +42,7 @@ It works even without an internet connection and syncs automatically once back o
 
 ### **Update**
 
-* Edit screen allows changing name, nationality, position and shirt number.
+* Edit screen allows changing name, position and shirt number.
 * Real-time updates are broadcast to all connected clients.
 
 ### **Delete**
