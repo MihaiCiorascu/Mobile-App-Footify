@@ -42,7 +42,7 @@ It works even without an internet connection and syncs automatically once back o
 
 ### **Update**
 
-* Edit screen allows changing all details and images.
+* Edit screen allows changing name, nationality, position and jersey number.
 * Real-time updates are broadcast to all connected clients.
 
 ### **Delete**
