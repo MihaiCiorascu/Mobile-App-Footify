@@ -58,7 +58,7 @@ It works even without an internet connection and syncs automatically once back o
 
 
 
-### \*\*Create\*\*
+- **Create**
 
 
 
@@ -70,7 +70,7 @@ It works even without an internet connection and syncs automatically once back o
 
 
 
-### \*\*Read\*\*
+- **Read**
 
 
 
@@ -82,7 +82,7 @@ It works even without an internet connection and syncs automatically once back o
 
 
 
-### \*\*Update\*\*
+- **Update**
 
 
 
@@ -92,7 +92,7 @@ It works even without an internet connection and syncs automatically once back o
 
 
 
-### \*\*Delete\*\*
+- **Delete**
 
 
 
@@ -110,7 +110,7 @@ It works even without an internet connection and syncs automatically once back o
 
 
 
-### \*\*Local Database\*\*
+- **Local Database**
 
 
 
@@ -124,7 +124,7 @@ It works even without an internet connection and syncs automatically once back o
 
 
 
-### \*\*Server Database\*\*
+- **Server Database**
 
 
 
@@ -144,11 +144,11 @@ It works even without an internet connection and syncs automatically once back o
 
 
 
-\* \*\*Create (offline):\*\* Player is saved locally and synced via POST when online.
+- **Create (offline):** Player is saved locally and synced via POST when online.
 
-\* \*\*Read (offline):\*\* Cached player list and data remain available; a banner shows “Server is unavailable.”
+- **Read (offline):** Cached player list and data remain available; a banner shows “Server is unavailable.”
 
-\* \*\*Update (offline):\*\* Edits are saved locally and synced in order when online.
+- **Update (offline):** Edits are saved locally and synced in order when online.
 
-\* \*\*Delete (offline):\*\* Player is marked for deletion and hidden; deletion request is sent once reconnected.
+- **Delete (offline):** Player is marked for deletion and hidden; deletion request is sent once reconnected.
 
