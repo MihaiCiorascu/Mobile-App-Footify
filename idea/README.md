@@ -19,7 +19,7 @@ It works even without an internet connection and syncs automatically once back o
 | **position**                | Goalkeeper, Right Back, Left Back, Center Back, Central Defensive Midfielder, Right Midfielder, Left Midfielder, Central Midfielder, Central Attacking Midfielder, Right Winger, Left Winger, Center Forward, Striker |
 | **nationality**             | Country                                                                                                                                                                                                               |
 | **rating**                  | Number from 0.0 to 10.0                                                                                                                                                                                               |
-| **jersey number**           | Number from 0 to 99                                                                                                                                                                                                   |
+| **shirt number**           | Number from 0 to 99                                                                                                                                                                                                   |
 | **goals**                   | Total goals (default 0)                                                                                                                                                                                               |
 | **image / image1 / image2** | URLs for profile picture, preview, and player card                                                                                                                                                                    |
 | **createdAt / updatedAt**   | Automatic timestamps                                                                                                                                                                                                  |
@@ -42,7 +42,7 @@ It works even without an internet connection and syncs automatically once back o
 
 ### **Update**
 
-* Edit screen allows changing name, nationality, position and jersey number.
+* Edit screen allows changing name, nationality, position and shirt number.
 * Real-time updates are broadcast to all connected clients.
 
 ### **Delete**
