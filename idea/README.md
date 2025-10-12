@@ -75,5 +75,3 @@ It works even without an internet connection and syncs automatically once back o
 * **Read (offline):** Cached player list and data remain available; a banner shows “Server is unavailable.”
 * **Update (offline):** Edits are saved locally and synced in order when online.
 * **Delete (offline):** Player is marked for deletion and hidden; deletion request is sent once reconnected.
-
-✅ Copy and paste this into your `README.md` — the table and bullet formatting will now display perfectly on GitHub or VS Code preview.
