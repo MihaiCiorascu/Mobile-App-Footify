@@ -7,7 +7,7 @@ The app also displays simple charts, such as the number of defenders or strikers
 A rating grading system rewards players with points based on their ratings and minutes played.
 It works even without an internet connection and syncs automatically once back online.
 
----
+
 
 ## 🧩 Entity: Player
 
@@ -24,7 +24,7 @@ It works even without an internet connection and syncs automatically once back o
 | **image / image1 / image2** | URLs for profile picture, preview, and player card                                                                                                                                                                    |
 | **createdAt / updatedAt**   | Automatic timestamps                                                                                                                                                                                                  |
 
----
+
 
 ## ⚙️ CRUD Operations
 
@@ -50,7 +50,7 @@ It works even without an internet connection and syncs automatically once back o
 * Confirmation required.
 * Player and related data are removed, charts update automatically.
 
----
+
 
 ## 💾 Persistence Details
 
@@ -67,7 +67,7 @@ It works even without an internet connection and syncs automatically once back o
 * **Update:** Modifications are synced to the server and overwrite outdated data.
 * **Delete:** Deleted players are removed from the server database.
 
----
+
 
 ## 📶 Offline Behavior
 
