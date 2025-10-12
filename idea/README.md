@@ -114,13 +114,13 @@ It works even without an internet connection and syncs automatically once back o
 
 
 
-\* \*\*Create:\*\* Players added offline are stored in the local SQLite database and synced when online.
+***Create:*** Players added offline are stored in the local SQLite database and synced when online.
 
-\* \*\*Read:\*\* Player lists and profiles are cached for offline access.
+***Read:*** Player lists and profiles are cached for offline access.
 
-\* \*\*Update:\*\* Edits made offline (e.g., name, position, rating) are queued for synchronization.
+***Update:*** Edits made offline (e.g., name, position, rating) are queued for synchronization.
 
-\* \*\*Delete:\*\* Players removed offline are flagged locally and fully deleted from the server when reconnected.
+***Delete:*** Players removed offline are flagged locally and fully deleted from the server when reconnected.
 
 
 
@@ -128,11 +128,11 @@ It works even without an internet connection and syncs automatically once back o
 
 
 
-\* \*\*Create:\*\* Newly added players are uploaded and stored in the central database.
+***Create:*** Newly added players are uploaded and stored in the central database.
 
-\* \*\*Update:\*\* Modifications are synced to the server and overwrite outdated data.
+***Update:*** Modifications are synced to the server and overwrite outdated data.
 
-\* \*\*Delete:\*\* Deleted players are removed from the server database.
+***Delete:*** Deleted players are removed from the server database.
 
 
 
