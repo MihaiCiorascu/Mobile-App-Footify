@@ -95,4 +95,5 @@ It works even without an internet connection and syncs automatically once back o
 ✏️ Edit Player
 <br>
   <img src="https://github.com/user-attachments/assets/9b6ee07a-9407-4f6e-94bf-ef1433f9303f" width="300"/>
-  <img src="https://github.com/user-attachments/assets/3bcccd47-75b1-475d-871a-0650bdd9a5dd" width="300"/>
+  <img src="https://github.com/user-attachments/assets/a08e3979-fa0c-4144-9c0c-d9d1e50fddaf" width="300"/>
+
