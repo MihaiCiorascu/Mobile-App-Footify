@@ -56,7 +56,7 @@ It works even without an internet connection and syncs automatically once back o
 
 ### **Local Database**
 
-* **Create:** Players added offline are stored in the local SQLite database and synced when online.
+* **Create:** Players added offline are stored in the local database and synced when online.
 * **Read:** Player lists and profiles are cached for offline access.
 * **Update:** Edits made offline (e.g., name, position, rating) are queued for synchronization.
 * **Delete:** Players removed offline are flagged locally and fully deleted from the server when reconnected.
