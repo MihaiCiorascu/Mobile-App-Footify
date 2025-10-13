@@ -84,9 +84,10 @@ It works even without an internet connection and syncs automatically once back o
 
 ### List View
 <br>
-  <img src="https://github.com/user-attachments/assets/3093dccc-6926-4739-83ca-20e508affc91" width="300"/>
+  <img src="https://github.com/user-attachments/assets/da3e617c-975a-4148-bd77-42e4f6bdf65d" width="300"/>
   <img src="https://github.com/user-attachments/assets/3b7c9467-f945-4f3b-96fc-f29a9b961fe1" width="300"/>
-<br><br>
+
+
 
 ### Delete Player
 <br>
@@ -95,5 +96,6 @@ It works even without an internet connection and syncs automatically once back o
   
 ### Edit Player
 <br>
-  <img src="https://github.com/user-attachments/assets/9b6ee07a-9407-4f6e-94bf-ef1433f9303f" width="300"/>
-  <img src="https://github.com/user-attachments/assets/8abf384f-7388-4f88-8c55-53083e927bdc" width="300"/>
+  <img src="https://github.com/user-attachments/assets/a3e48624-eb9e-4279-a5b9-fbf273593975" width="300"/>
+  <img src="https://github.com/user-attachments/assets/08bae1c7-3855-4c3c-83d0-8222b9daa030" width="300"/>
+
