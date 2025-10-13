@@ -85,7 +85,6 @@ It works even without an internet connection and syncs automatically once back o
 ### List View
 <br>
   <img src="https://github.com/user-attachments/assets/da3e617c-975a-4148-bd77-42e4f6bdf65d" width="300"/>
-  <img src="https://github.com/user-attachments/assets/3b7c9467-f945-4f3b-96fc-f29a9b961fe1" width="300"/>
 
 
 
