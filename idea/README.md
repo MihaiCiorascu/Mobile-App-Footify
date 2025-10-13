@@ -85,7 +85,7 @@ It works even without an internet connection and syncs automatically once back o
 ### List View
 <br>
   <img src="https://github.com/user-attachments/assets/3093dccc-6926-4739-83ca-20e508affc91" width="300"/>
-  <img src="https://github.com/user-attachments/assets/45fa7510-3383-40b2-9369-3e57fec1a19e" width="300"/>
+  <img src="https://github.com/user-attachments/assets/3b7c9467-f945-4f3b-96fc-f29a9b961fe1" width="300"/>
 <br><br>
 
 ### Delete Player
