@@ -79,7 +79,7 @@ It works even without an internet connection and syncs automatically once back o
 
 ### Main Page
 <br>
-  <img src="https://github.com/user-attachments/assets/2072c0c7-02ac-4129-9ee1-1595210f2c5c" width="300"/>
+  <img src="https://github.com/user-attachments/assets/d163b10d-ff9a-4307-8d85-96aef3d015de" width="300"/>
 <br><br>
 
 ### List View
