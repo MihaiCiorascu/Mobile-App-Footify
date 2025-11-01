@@ -109,8 +109,9 @@ fun PlayerListScreen(
         player = playerToDelete,
         onDismiss = { playerToDelete = null },
         onConfirm = {
-            // TODO: Implement DELETE
-            println("Deleting player: ${playerToDelete?.name}")
+            playerToDelete?.id?.let { playerId ->
+                viewModel.deletePlayer(playerId)
+            }
             playerToDelete = null
         }
     )

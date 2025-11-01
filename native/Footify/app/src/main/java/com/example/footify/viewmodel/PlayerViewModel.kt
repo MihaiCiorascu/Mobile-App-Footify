@@ -162,4 +162,16 @@ class PlayerViewModel : ViewModel() {
             }
         }
     }
+    
+    fun deletePlayer(playerId: String) {
+        viewModelScope.launch {
+            val currentPlayers = _players.value?.toMutableList() ?: mutableListOf()
+            val filteredList = currentPlayers.filter { it.id != playerId }
+            _players.value = filteredList
+            
+            // Update filtered players if search is active
+            val currentQuery = _searchQuery.value ?: ""
+            searchPlayers(currentQuery)
+        }
+    }
 }
