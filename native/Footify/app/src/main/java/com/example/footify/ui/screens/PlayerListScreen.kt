@@ -6,6 +6,7 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
@@ -16,6 +17,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.runtime.livedata.observeAsState
 import com.example.footify.model.Player
+import com.example.footify.ui.components.AddPlayerDialog
 import com.example.footify.ui.components.DeleteConfirmationDialog
 import com.example.footify.ui.components.PlayerCard
 import com.example.footify.viewmodel.PlayerViewModel
@@ -30,7 +32,8 @@ fun PlayerListScreen(
     val players by viewModel.filteredPlayers.observeAsState(emptyList())
     val searchQuery by viewModel.searchQuery.observeAsState("")
     
-    // State for delete confirmation dialog
+    // State for dialogs
+    var showAddDialog by remember { mutableStateOf(false) }
     var playerToDelete by remember { mutableStateOf<Player?>(null) }
     
     Column(
@@ -39,17 +42,39 @@ fun PlayerListScreen(
             .background(Color.White)
             .padding(16.dp)
     ) {
-        Text(
-            text = "Hello!",
-            style = MaterialTheme.typography.bodyLarge,
-            color = Color(0xFF6A4C93)
-        )
-        Text(
-            text = "Welcome Back!",
-            style = MaterialTheme.typography.headlineMedium,
-            fontWeight = FontWeight.Bold,
-            color = Color(0xFF6A4C93)
-        )
+        // Header section with welcome text and Add button
+        Box(modifier = Modifier.fillMaxWidth()) {
+            Column {
+                Text(
+                    text = "Hello!",
+                    style = MaterialTheme.typography.bodyLarge,
+                    color = Color(0xFF6A4C93)
+                )
+                Text(
+                    text = "Welcome Back!",
+                    style = MaterialTheme.typography.headlineMedium,
+                    fontWeight = FontWeight.Bold,
+                    color = Color(0xFF6A4C93)
+                )
+            }
+            
+            // Add Player button in top right
+            IconButton(
+                onClick = { showAddDialog = true },
+                modifier = Modifier
+                    .align(Alignment.TopEnd)
+                    .background(
+                        color = Color(0xFF6A4C93),
+                        shape = RoundedCornerShape(8.dp)
+                    )
+            ) {
+                Icon(
+                    imageVector = Icons.Default.Add,
+                    contentDescription = "Add player",
+                    tint = Color.White
+                )
+            }
+        }
         
         Spacer(modifier = Modifier.height(16.dp))
 
@@ -118,6 +143,17 @@ fun PlayerListScreen(
     }
 
 
+    // Add Player Dialog
+    if (showAddDialog) {
+        AddPlayerDialog(
+            onDismiss = { showAddDialog = false },
+            onAdd = { name, age, shirtNumber, position ->
+                viewModel.addPlayer(name, age, shirtNumber, position)
+            }
+        )
+    }
+
+    // Delete Confirmation Dialog
     DeleteConfirmationDialog(
         player = playerToDelete,
         onDismiss = { playerToDelete = null },

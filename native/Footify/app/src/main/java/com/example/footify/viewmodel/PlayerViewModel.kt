@@ -174,4 +174,33 @@ class PlayerViewModel : ViewModel() {
             searchPlayers(currentQuery)
         }
     }
+    
+    fun addPlayer(name: String, age: Int, shirtNumber: Int, position: Position) {
+        viewModelScope.launch {
+            val currentPlayers = _players.value?.toMutableList() ?: mutableListOf()
+            
+            // Generate unique ID
+            val newId = (currentPlayers.size + 1).toString()
+            
+            val newPlayer = Player(
+                id = newId,
+                name = name,
+                age = age,
+                position = position,
+                rating = 5.0, // Default rating
+                shirtNumber = shirtNumber,
+                goals = 0, // Default goals
+                image = "", // Default anonymous (empty image)
+                createdAt = Date(),
+                updatedAt = Date()
+            )
+            
+            currentPlayers.add(newPlayer)
+            _players.value = currentPlayers
+            
+            // Update filtered players if search is active
+            val currentQuery = _searchQuery.value ?: ""
+            searchPlayers(currentQuery)
+        }
+    }
 }
