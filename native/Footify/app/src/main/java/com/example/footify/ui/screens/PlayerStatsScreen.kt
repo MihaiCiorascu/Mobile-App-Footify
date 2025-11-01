@@ -66,17 +66,33 @@ fun PlayerStatsScreen(
             ) {
                 // Player Info (Left)
                 Column {
+                    // Split name into first and last name
+                    val nameParts = player.name.trim().split(" ", limit = 2)
+                    val firstName = nameParts.getOrElse(0) { "" }
+                    val lastName = nameParts.getOrElse(1) { "" }
+                    
+                    // First Name
                     Text(
-                        text = player.name,
+                        text = firstName,
                         color = Color.White,
                         fontSize = 28.sp,
                         fontWeight = FontWeight.Bold
                     )
+                    // Last Name (only if it exists)
+                    if (lastName.isNotEmpty()) {
+                        Text(
+                            text = lastName,
+                            color = Color.White,
+                            fontSize = 28.sp,
+                            fontWeight = FontWeight.Bold
+                        )
+                    }
                     Text(
                         text = "#${player.shirtNumber}",
                         color = Color(0xFFFFD700),
                         fontSize = 24.sp,
-                        fontWeight = FontWeight.Bold
+                        fontWeight = FontWeight.Bold,
+                        modifier = Modifier.padding(top = 4.dp)
                     )
                 }
                 
