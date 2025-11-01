@@ -3,8 +3,10 @@ package com.example.footify.ui.components
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowDropDown
 import androidx.compose.material3.*
@@ -13,6 +15,9 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.onGloballyPositioned
+import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.ui.unit.IntSize
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextAlign
@@ -162,6 +167,8 @@ fun EditPlayerDialog(
                         )
                         
                         var expanded by remember { mutableStateOf(false) }
+                        var textFieldSize by remember { mutableStateOf(IntSize.Zero) }
+                        val density = LocalDensity.current
                         
                         Box {
                             OutlinedTextField(
@@ -175,7 +182,11 @@ fun EditPlayerDialog(
                                         tint = Color(0xFF6A4C93)
                                     )
                                 },
-                                modifier = Modifier.fillMaxWidth(),
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .onGloballyPositioned { coordinates ->
+                                        textFieldSize = coordinates.size
+                                    },
                                 shape = RoundedCornerShape(8.dp),
                                 colors = OutlinedTextFieldDefaults.colors(
                                     focusedBorderColor = Color(0xFF8B7BA6),
@@ -194,27 +205,51 @@ fun EditPlayerDialog(
                                 modifier = Modifier
                                     .fillMaxWidth()
                                     .height(56.dp)
-                                    .clickable { expanded = true }
+                                    .clickable { expanded = !expanded }
                             )
                             
-                            DropdownMenu(
-                                expanded = expanded,
-                                onDismissRequest = { expanded = false }
-                            ) {
-                                Position.values().forEach { position ->
-                                    DropdownMenuItem(
-                                        text = {
-                                            Text(
-                                                text = position.getAbbreviation(),
-                                                fontWeight = FontWeight.Bold,
-                                                color = Color(0xFF6A4C93)
-                                            )
-                                        },
-                                        onClick = {
-                                            selectedPosition = position
-                                            expanded = false
+                            // Custom dropdown menu
+                            if (expanded) {
+                                val scrollState = rememberScrollState()
+                                Box(
+                                    modifier = Modifier
+                                        .fillMaxWidth()
+                                        .padding(top = with(density) { textFieldSize.height.toDp() + 4.dp })
+                                ) {
+                                    Surface(
+                                        color = Color.White,
+                                        modifier = Modifier
+                                            .fillMaxWidth()
+                                            .heightIn(max = 200.dp),
+                                        shape = RoundedCornerShape(8.dp),
+                                        shadowElevation = 8.dp
+                                    ) {
+                                        Column(
+                                            modifier = Modifier
+                                                .fillMaxWidth()
+                                                .clip(RoundedCornerShape(8.dp))
+                                                .verticalScroll(scrollState)
+                                        ) {
+                                            Position.values().forEachIndexed { index, position ->
+                                                Box(
+                                                    modifier = Modifier
+                                                        .fillMaxWidth()
+                                                        .clickable {
+                                                            selectedPosition = position
+                                                            expanded = false
+                                                        }
+                                                        .padding(horizontal = 16.dp, vertical = 12.dp)
+                                                ) {
+                                                    Text(
+                                                        text = position.getAbbreviation(),
+                                                        fontWeight = FontWeight.Bold,
+                                                        color = Color(0xFF6A4C93),
+                                                        fontSize = 16.sp
+                                                    )
+                                                }
+                                            }
                                         }
-                                    )
+                                    }
                                 }
                             }
                         }
