@@ -1,13 +1,11 @@
 package com.example.footify.ui.components
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
@@ -35,7 +33,9 @@ fun DeleteConfirmationDialog(
                     .fillMaxWidth()
                     .padding(16.dp),
                 shape = RoundedCornerShape(16.dp),
-                colors = CardDefaults.cardColors(containerColor = Color.White)
+                colors = CardDefaults.cardColors(
+                    containerColor = MaterialTheme.colorScheme.surface
+                )
             ) {
                 Column(
                     modifier = Modifier
@@ -47,7 +47,7 @@ fun DeleteConfirmationDialog(
                         text = "ARE YOU SURE YOU WANT TO DELETE?",
                         fontSize = 18.sp,
                         fontWeight = FontWeight.Bold,
-                        color = Color(0xFF6A4C93),
+                        color = MaterialTheme.colorScheme.onSurface,
                         textAlign = TextAlign.Center,
                         modifier = Modifier.padding(bottom = 24.dp)
                     )
@@ -62,13 +62,13 @@ fun DeleteConfirmationDialog(
                                 .weight(1f)
                                 .padding(end = 8.dp),
                             colors = ButtonDefaults.buttonColors(
-                                containerColor = Color(0xFF6A4C93)
+                                containerColor = MaterialTheme.colorScheme.primary
                             ),
                             shape = RoundedCornerShape(8.dp)
                         ) {
                             Text(
                                 text = "NO",
-                                color = Color.White,
+                                color = MaterialTheme.colorScheme.onPrimary,
                                 fontWeight = FontWeight.Bold,
                                 fontSize = 16.sp
                             )
@@ -80,17 +80,17 @@ fun DeleteConfirmationDialog(
                                 .weight(1f)
                                 .padding(start = 8.dp),
                             colors = ButtonDefaults.outlinedButtonColors(
-                                contentColor = Color(0xFF6A4C93)
+                                contentColor = MaterialTheme.colorScheme.primary
                             ),
                             border = androidx.compose.foundation.BorderStroke(
                                 width = 2.dp,
-                                color = Color(0xFF6A4C93)
+                                color = MaterialTheme.colorScheme.primary
                             ),
                             shape = RoundedCornerShape(8.dp)
                         ) {
                             Text(
                                 text = "YES",
-                                color = Color(0xFF6A4C93),
+                                color = MaterialTheme.colorScheme.primary,
                                 fontWeight = FontWeight.Bold,
                                 fontSize = 16.sp
                             )
