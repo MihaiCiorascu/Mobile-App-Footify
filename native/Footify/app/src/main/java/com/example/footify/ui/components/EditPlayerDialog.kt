@@ -1,6 +1,5 @@
 package com.example.footify.ui.components
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
@@ -230,7 +229,7 @@ fun EditPlayerDialog(
                                                 .clip(RoundedCornerShape(8.dp))
                                                 .verticalScroll(scrollState)
                                         ) {
-                                            Position.values().forEachIndexed { index, position ->
+                                            Position.values().forEachIndexed { _, position ->
                                                 Box(
                                                     modifier = Modifier
                                                         .fillMaxWidth()
