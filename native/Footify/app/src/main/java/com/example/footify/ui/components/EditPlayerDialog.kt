@@ -229,7 +229,7 @@ fun EditPlayerDialog(
                                                 .clip(RoundedCornerShape(8.dp))
                                                 .verticalScroll(scrollState)
                                         ) {
-                                            Position.values().forEachIndexed { _, position ->
+                                            Position.entries.forEachIndexed { _, position ->
                                                 Box(
                                                     modifier = Modifier
                                                         .fillMaxWidth()
