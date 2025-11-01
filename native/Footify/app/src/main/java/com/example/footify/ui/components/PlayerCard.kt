@@ -51,7 +51,7 @@ fun PlayerCard(
                 .padding(horizontal = 16.dp, vertical = 4.dp),
             shape = RoundedCornerShape(12.dp),
             elevation = CardDefaults.cardElevation(defaultElevation = 4.dp),
-            colors = CardDefaults.cardColors(containerColor = Color(0xFFF5F5F5))
+            colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceVariant)
         ) {
             Row(
                 modifier = Modifier
@@ -63,7 +63,7 @@ fun PlayerCard(
                     modifier = Modifier
                         .size(60.dp)
                         .clip(CircleShape)
-                        .background(Color(0xFF6A4C93))
+                        .background(MaterialTheme.colorScheme.primary)
                 ) {
                     if (player.image.isNotEmpty()) {
                         AsyncImage(
@@ -81,7 +81,7 @@ fun PlayerCard(
                             modifier = Modifier
                                 .fillMaxSize()
                                 .padding(12.dp),
-                            tint = Color.White
+                            tint = MaterialTheme.colorScheme.onPrimary
                         )
                     }
                 }
@@ -97,12 +97,12 @@ fun PlayerCard(
                         text = player.name,
                         style = MaterialTheme.typography.titleMedium,
                         fontWeight = FontWeight.Bold,
-                        color = Color(0xFF6A4C93)
+                        color = MaterialTheme.colorScheme.primary
                     )
                     Text(
                         text = player.position.displayName,
                         style = MaterialTheme.typography.bodyMedium,
-                        color = Color.Gray
+                        color = MaterialTheme.colorScheme.onSurfaceVariant
                     )
                 }
 
@@ -117,7 +117,7 @@ fun PlayerCard(
                         text = String.format("%.1f", player.rating),
                         style = MaterialTheme.typography.titleSmall,
                         fontWeight = FontWeight.Bold,
-                        color = Color.White,
+                        color = MaterialTheme.colorScheme.onPrimary,
                         textAlign = TextAlign.Center
                     )
                 }
@@ -138,7 +138,7 @@ fun PlayerCard(
         ) {
             Text(
                 text = "−",
-                color = Color.White,
+                color = MaterialTheme.colorScheme.onPrimary,
                 fontSize = 16.sp,
                 fontWeight = FontWeight.Bold
             )

@@ -45,13 +45,12 @@ fun EditPlayerDialog(
             dismissOnClickOutside = true
         )
     ) {
-        // Dialog content
         Card(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(32.dp),
                 shape = RoundedCornerShape(16.dp),
-                colors = CardDefaults.cardColors(containerColor = Color.White),
+                colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
                 elevation = CardDefaults.cardElevation(defaultElevation = 8.dp)
             ) {
                 Column(
@@ -60,16 +59,14 @@ fun EditPlayerDialog(
                         .padding(24.dp),
                     horizontalAlignment = Alignment.CenterHorizontally
                 ) {
-                    // Title
                     Text(
                         text = "Edit:",
                         fontSize = 20.sp,
                         fontWeight = FontWeight.Bold,
-                        color = Color(0xFF6A4C93),
+                        color = MaterialTheme.colorScheme.primary,
                         modifier = Modifier.padding(bottom = 24.dp)
                     )
 
-                    // Player Name Field
                     Column(
                         modifier = Modifier
                             .fillMaxWidth()
@@ -78,7 +75,7 @@ fun EditPlayerDialog(
                         Text(
                             text = "Player Name",
                             fontSize = 14.sp,
-                            color = Color(0xFF6A4C93),
+                            color = MaterialTheme.colorScheme.primary,
                             modifier = Modifier.padding(bottom = 8.dp)
                         )
                         OutlinedTextField(
@@ -87,10 +84,10 @@ fun EditPlayerDialog(
                             modifier = Modifier.fillMaxWidth(),
                             shape = RoundedCornerShape(8.dp),
                             colors = OutlinedTextFieldDefaults.colors(
-                                focusedBorderColor = Color(0xFF8B7BA6),
-                                unfocusedBorderColor = Color(0xFF8B7BA6),
-                                focusedTextColor = Color(0xFF6A4C93),
-                                unfocusedTextColor = Color(0xFF6A4C93)
+                                focusedBorderColor = MaterialTheme.colorScheme.secondary,
+                                unfocusedBorderColor = MaterialTheme.colorScheme.secondary,
+                                focusedTextColor = MaterialTheme.colorScheme.primary,
+                                unfocusedTextColor = MaterialTheme.colorScheme.primary
                             ),
                             textStyle = androidx.compose.ui.text.TextStyle(
                                 fontWeight = FontWeight.Bold,
@@ -99,7 +96,6 @@ fun EditPlayerDialog(
                         )
                     }
 
-                    // Shirt Number Field
                     Column(
                         modifier = Modifier
                             .fillMaxWidth()
@@ -108,14 +104,14 @@ fun EditPlayerDialog(
                         Text(
                             text = "Shirt number",
                             fontSize = 14.sp,
-                            color = Color(0xFF6A4C93),
+                            color = MaterialTheme.colorScheme.primary,
                             modifier = Modifier.padding(bottom = 8.dp)
                         )
                         OutlinedTextField(
                             value = shirtNumber,
                             onValueChange = { 
                                 shirtNumber = it
-                                // Validate shirt number
+
                                 val number = it.toIntOrNull()
                                 shirtNumberError = when {
                                     it.isEmpty() -> ""
@@ -129,10 +125,10 @@ fun EditPlayerDialog(
                             shape = RoundedCornerShape(8.dp),
                             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
                             colors = OutlinedTextFieldDefaults.colors(
-                                focusedBorderColor = if (shirtNumberError.isNotEmpty()) Color.Red else Color(0xFF8B7BA6),
-                                unfocusedBorderColor = if (shirtNumberError.isNotEmpty()) Color.Red else Color(0xFF8B7BA6),
-                                focusedTextColor = Color(0xFF6A4C93),
-                                unfocusedTextColor = Color(0xFF6A4C93)
+                                focusedBorderColor = if (shirtNumberError.isNotEmpty()) Color.Red else MaterialTheme.colorScheme.secondary,
+                                unfocusedBorderColor = if (shirtNumberError.isNotEmpty()) Color.Red else MaterialTheme.colorScheme.secondary,
+                                focusedTextColor = MaterialTheme.colorScheme.primary,
+                                unfocusedTextColor = MaterialTheme.colorScheme.primary
                             ),
                             textStyle = androidx.compose.ui.text.TextStyle(
                                 fontWeight = FontWeight.Bold,
@@ -140,8 +136,7 @@ fun EditPlayerDialog(
                             ),
                             isError = shirtNumberError.isNotEmpty()
                         )
-                        
-                        // Error message
+
                         if (shirtNumberError.isNotEmpty()) {
                             Text(
                                 text = shirtNumberError,
@@ -152,7 +147,6 @@ fun EditPlayerDialog(
                         }
                     }
 
-                    // Position Field
                     Column(
                         modifier = Modifier
                             .fillMaxWidth()
@@ -161,7 +155,7 @@ fun EditPlayerDialog(
                         Text(
                             text = "Position",
                             fontSize = 14.sp,
-                            color = Color(0xFF6A4C93),
+                            color = MaterialTheme.colorScheme.primary,
                             modifier = Modifier.padding(bottom = 8.dp)
                         )
                         
@@ -175,11 +169,11 @@ fun EditPlayerDialog(
                                 onValueChange = { },
                                 readOnly = true,
                                 trailingIcon = {
-                                    Icon(
-                                        imageVector = Icons.Default.ArrowDropDown,
-                                        contentDescription = "Dropdown",
-                                        tint = Color(0xFF6A4C93)
-                                    )
+                                Icon(
+                                    imageVector = Icons.Default.ArrowDropDown,
+                                    contentDescription = "Dropdown",
+                                    tint = MaterialTheme.colorScheme.primary
+                                )
                                 },
                                 modifier = Modifier
                                     .fillMaxWidth()
@@ -188,26 +182,24 @@ fun EditPlayerDialog(
                                     },
                                 shape = RoundedCornerShape(8.dp),
                                 colors = OutlinedTextFieldDefaults.colors(
-                                    focusedBorderColor = Color(0xFF8B7BA6),
-                                    unfocusedBorderColor = Color(0xFF8B7BA6),
-                                    focusedTextColor = Color(0xFF6A4C93),
-                                    unfocusedTextColor = Color(0xFF6A4C93)
+                                    focusedBorderColor = MaterialTheme.colorScheme.secondary,
+                                    unfocusedBorderColor = MaterialTheme.colorScheme.secondary,
+                                    focusedTextColor = MaterialTheme.colorScheme.primary,
+                                    unfocusedTextColor = MaterialTheme.colorScheme.primary
                                 ),
                                 textStyle = androidx.compose.ui.text.TextStyle(
                                     fontWeight = FontWeight.Bold,
                                     fontSize = 16.sp
                                 )
                             )
-                            
-                            // Invisible clickable overlay
+
                             Box(
                                 modifier = Modifier
                                     .fillMaxWidth()
                                     .height(56.dp)
                                     .clickable { expanded = !expanded }
                             )
-                            
-                            // Custom dropdown menu
+
                             if (expanded) {
                                 val scrollState = rememberScrollState()
                                 Box(
@@ -216,7 +208,7 @@ fun EditPlayerDialog(
                                         .padding(top = with(density) { textFieldSize.height.toDp() + 4.dp })
                                 ) {
                                     Surface(
-                                        color = Color.White,
+                                        color = MaterialTheme.colorScheme.surface,
                                         modifier = Modifier
                                             .fillMaxWidth()
                                             .heightIn(max = 200.dp),
@@ -242,7 +234,7 @@ fun EditPlayerDialog(
                                                     Text(
                                                         text = position.getAbbreviation(),
                                                         fontWeight = FontWeight.Bold,
-                                                        color = Color(0xFF6A4C93),
+                                                        color = MaterialTheme.colorScheme.primary,
                                                         fontSize = 16.sp
                                                     )
                                                 }
@@ -254,7 +246,6 @@ fun EditPlayerDialog(
                         }
                     }
 
-                    // Save Changes Button
                     Button(
                         onClick = {
                             if (shirtNumberError.isEmpty()) {
@@ -269,12 +260,12 @@ fun EditPlayerDialog(
                             .height(48.dp),
                         shape = RoundedCornerShape(8.dp),
                         colors = ButtonDefaults.buttonColors(
-                            containerColor = Color.White,
-                            contentColor = Color(0xFF6A4C93)
+                            containerColor = MaterialTheme.colorScheme.surface,
+                            contentColor = MaterialTheme.colorScheme.primary
                         ),
                         border = androidx.compose.foundation.BorderStroke(
                             width = 1.dp,
-                            color = Color(0xFF8B7BA6)
+                            color = MaterialTheme.colorScheme.secondary
                         )
                     ) {
                         Text(

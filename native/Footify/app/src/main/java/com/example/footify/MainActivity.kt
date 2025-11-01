@@ -40,24 +40,20 @@ class MainActivity : ComponentActivity() {
                                 showEditDialog = true
                             }
                         )
-                        
-                        // Show edit dialog when needed
+
                         if (showEditDialog) {
                             EditPlayerDialog(
                                 player = selectedPlayer!!,
                                 onDismiss = { showEditDialog = false },
                                 onSave = { name, shirtNumber, position ->
-                                    // Update the player with new data
                                     val updatedPlayer = selectedPlayer!!.copy(
                                         name = name,
                                         shirtNumber = shirtNumber,
                                         position = position
                                     )
-                                    
-                                    // Update in ViewModel
+
                                     viewModel.updatePlayer(updatedPlayer)
                                     
-                                    // Update the selected player to reflect changes
                                     selectedPlayer = updatedPlayer
                                 }
                             )

@@ -35,7 +35,7 @@ fun DeleteConfirmationDialog(
                     .padding(16.dp),
                 shape = RoundedCornerShape(16.dp),
                 colors = CardDefaults.cardColors(
-                    containerColor = Color.White
+                    containerColor = MaterialTheme.colorScheme.surface
                 )
             ) {
                 Column(
@@ -48,7 +48,7 @@ fun DeleteConfirmationDialog(
                         text = "ARE YOU SURE YOU WANT TO DELETE?",
                         fontSize = 18.sp,
                         fontWeight = FontWeight.Bold,
-                        color = Color(0xFF6A4C93),
+                        color = MaterialTheme.colorScheme.primary,
                         textAlign = TextAlign.Center,
                         modifier = Modifier.padding(bottom = 24.dp)
                     )
@@ -63,13 +63,13 @@ fun DeleteConfirmationDialog(
                                 .weight(1f)
                                 .padding(end = 8.dp),
                             colors = ButtonDefaults.buttonColors(
-                                containerColor = Color(0xFF6A4C93)
+                                containerColor = MaterialTheme.colorScheme.primary
                             ),
                             shape = RoundedCornerShape(8.dp)
                         ) {
                             Text(
                                 text = "NO",
-                                color = Color.White,
+                                color = MaterialTheme.colorScheme.onPrimary,
                                 fontWeight = FontWeight.Bold,
                                 fontSize = 16.sp
                             )
@@ -81,17 +81,17 @@ fun DeleteConfirmationDialog(
                                 .weight(1f)
                                 .padding(start = 8.dp),
                             colors = ButtonDefaults.outlinedButtonColors(
-                                contentColor = Color(0xFF6A4C93)
+                                contentColor = MaterialTheme.colorScheme.primary
                             ),
                             border = androidx.compose.foundation.BorderStroke(
                                 width = 2.dp,
-                                color = Color(0xFF6A4C93)
+                                color = MaterialTheme.colorScheme.primary
                             ),
                             shape = RoundedCornerShape(8.dp)
                         ) {
                             Text(
                                 text = "YES",
-                                color = Color(0xFF6A4C93),
+                                color = MaterialTheme.colorScheme.primary,
                                 fontWeight = FontWeight.Bold,
                                 fontSize = 16.sp
                             )

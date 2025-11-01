@@ -30,7 +30,7 @@ fun PlayerStatsScreen(
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(Color.White)
+            .background(MaterialTheme.colorScheme.background)
     ) {
         TopAppBar(
             title = { },
@@ -39,21 +39,20 @@ fun PlayerStatsScreen(
                     Icon(
                         imageVector = Icons.AutoMirrored.Filled.ArrowBack,
                         contentDescription = "Back",
-                        tint = Color.White
+                        tint = MaterialTheme.colorScheme.onPrimary
                     )
                 }
             },
             colors = TopAppBarDefaults.topAppBarColors(
-                containerColor = Color(0xFF6A4C93)
+                containerColor = MaterialTheme.colorScheme.primary
             )
         )
-        
-        // Header background
+
         Box(
-            modifier = Modifier
+                modifier = Modifier
                 .fillMaxWidth()
                 .background(
-                    color = Color(0xFF6A4C93),
+                    color = MaterialTheme.colorScheme.primary,
                     shape = RoundedCornerShape(bottomStart = 24.dp, bottomEnd = 24.dp)
                 )
                 .padding(24.dp)
@@ -65,30 +64,27 @@ fun PlayerStatsScreen(
             ) {
                 // Player Info (Left)
                 Column {
-                    // Split name into first and last name
                     val nameParts = player.name.trim().split(" ", limit = 2)
                     val firstName = nameParts.getOrElse(0) { "" }
                     val lastName = nameParts.getOrElse(1) { "" }
                     
-                    // First Name
                     Text(
                         text = firstName,
-                        color = Color.White,
+                        color = MaterialTheme.colorScheme.onPrimary,
                         fontSize = 28.sp,
                         fontWeight = FontWeight.Bold
                     )
-                    // Last Name (only if it exists)
                     if (lastName.isNotEmpty()) {
                         Text(
                             text = lastName,
-                            color = Color.White,
+                            color = MaterialTheme.colorScheme.onPrimary,
                             fontSize = 28.sp,
                             fontWeight = FontWeight.Bold
                         )
                     }
                     Text(
                         text = "#${player.shirtNumber}",
-                        color = Color(0xFFFFD700),
+                        color = MaterialTheme.colorScheme.tertiary,
                         fontSize = 24.sp,
                         fontWeight = FontWeight.Bold,
                         modifier = Modifier.padding(top = 4.dp)
@@ -100,7 +96,7 @@ fun PlayerStatsScreen(
                     modifier = Modifier
                         .size(120.dp)
                         .clip(RoundedCornerShape(16.dp))
-                        .background(Color.White)
+                        .background(MaterialTheme.colorScheme.surface)
                 ) {
                     if (player.image.isNotEmpty()) {
                         AsyncImage(
@@ -112,33 +108,31 @@ fun PlayerStatsScreen(
                             contentScale = ContentScale.Crop
                         )
                     } else {
-                        // Default Icon image when player has no image
                         Icon(
                             imageVector = Icons.Default.Person,
                             contentDescription = "Player placeholder",
                             modifier = Modifier
                                 .fillMaxSize()
                                 .padding(24.dp),
-                            tint = Color.Gray
+                            tint = MaterialTheme.colorScheme.onSurfaceVariant
                         )
                     }
                 }
             }
-            
-            // Edit Button
+
             IconButton(
                 onClick = onEditClick,
                 modifier = Modifier
                     .align(Alignment.TopEnd)
                     .background(
-                        color = Color(0xFF8B7BA6),
+                        color = MaterialTheme.colorScheme.secondary,
                         shape = RoundedCornerShape(8.dp)
                     )
             ) {
                 Icon(
                     imageVector = Icons.Default.Edit,
                     contentDescription = "Edit player",
-                    tint = Color(0xFFFFD700),
+                    tint = MaterialTheme.colorScheme.tertiary,
                     modifier = Modifier.size(20.dp)
                 )
             }
@@ -186,7 +180,7 @@ private fun StatCard(
         modifier = modifier,
         shape = RoundedCornerShape(12.dp),
         elevation = CardDefaults.cardElevation(defaultElevation = 4.dp),
-        colors = CardDefaults.cardColors(containerColor = Color(0xFFF5F5F5))
+        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceVariant)
     ) {
         Column(
             modifier = Modifier
@@ -198,12 +192,12 @@ private fun StatCard(
                 text = value,
                 fontSize = 24.sp,
                 fontWeight = FontWeight.Bold,
-                color = Color.Black
+                color = MaterialTheme.colorScheme.onSurface
             )
             Text(
                 text = label,
                 fontSize = 14.sp,
-                color = Color.Gray
+                color = MaterialTheme.colorScheme.onSurfaceVariant
             )
         }
     }

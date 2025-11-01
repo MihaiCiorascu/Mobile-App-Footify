@@ -32,46 +32,43 @@ fun PlayerListScreen(
     val players by viewModel.filteredPlayers.observeAsState(emptyList())
     val searchQuery by viewModel.searchQuery.observeAsState("")
     
-    // State for dialogs
     var showAddDialog by remember { mutableStateOf(false) }
     var playerToDelete by remember { mutableStateOf<Player?>(null) }
     
     Column(
         modifier = modifier
             .fillMaxSize()
-            .background(Color.White)
+            .background(MaterialTheme.colorScheme.background)
             .padding(16.dp)
     ) {
-        // Header section with welcome text and Add button
         Box(modifier = Modifier.fillMaxWidth()) {
             Column {
                 Text(
                     text = "Hello!",
                     style = MaterialTheme.typography.bodyLarge,
-                    color = Color(0xFF6A4C93)
+                    color = MaterialTheme.colorScheme.primary
                 )
                 Text(
                     text = "Welcome Back!",
                     style = MaterialTheme.typography.headlineMedium,
                     fontWeight = FontWeight.Bold,
-                    color = Color(0xFF6A4C93)
+                    color = MaterialTheme.colorScheme.primary
                 )
             }
             
-            // Add Player button in top right
             IconButton(
                 onClick = { showAddDialog = true },
                 modifier = Modifier
                     .align(Alignment.TopEnd)
                     .background(
-                        color = Color(0xFF6A4C93),
+                        color = MaterialTheme.colorScheme.primary,
                         shape = RoundedCornerShape(8.dp)
                     )
             ) {
                 Icon(
                     imageVector = Icons.Default.Add,
                     contentDescription = "Add player",
-                    tint = Color.White
+                    tint = MaterialTheme.colorScheme.onPrimary
                 )
             }
         }
@@ -88,16 +85,16 @@ fun PlayerListScreen(
                 Icon(
                     imageVector = Icons.Default.Search,
                     contentDescription = "Search",
-                    tint = Color(0xFF6A4C93)
+                    tint = MaterialTheme.colorScheme.primary
                 )
             },
             singleLine = true,
             shape = RoundedCornerShape(8.dp),
             colors = OutlinedTextFieldDefaults.colors(
-                focusedBorderColor = Color(0xFF8B7BA6),
-                unfocusedBorderColor = Color(0xFF8B7BA6),
-                focusedTextColor = Color(0xFF6A4C93),
-                unfocusedTextColor = Color(0xFF6A4C93)
+                focusedBorderColor = MaterialTheme.colorScheme.secondary,
+                unfocusedBorderColor = MaterialTheme.colorScheme.secondary,
+                focusedTextColor = MaterialTheme.colorScheme.primary,
+                unfocusedTextColor = MaterialTheme.colorScheme.primary
             )
         )
         
@@ -108,7 +105,7 @@ fun PlayerListScreen(
             text = "Recent Player Performances",
             style = MaterialTheme.typography.titleLarge,
             fontWeight = FontWeight.Bold,
-            color = Color(0xFF6A4C93)
+            color = MaterialTheme.colorScheme.primary
         )
         
         Spacer(modifier = Modifier.height(16.dp))
@@ -122,7 +119,7 @@ fun PlayerListScreen(
                 Text(
                     text = if (searchQuery.isBlank()) "No players found" else "No players match your search",
                     style = MaterialTheme.typography.bodyLarge,
-                    color = Color.Gray
+                    color = MaterialTheme.colorScheme.onSurfaceVariant
                 )
             }
         } else {
@@ -143,7 +140,6 @@ fun PlayerListScreen(
     }
 
 
-    // Add Player Dialog
     if (showAddDialog) {
         AddPlayerDialog(
             onDismiss = { showAddDialog = false },
@@ -153,7 +149,6 @@ fun PlayerListScreen(
         )
     }
 
-    // Delete Confirmation Dialog
     DeleteConfirmationDialog(
         player = playerToDelete,
         onDismiss = { playerToDelete = null },
