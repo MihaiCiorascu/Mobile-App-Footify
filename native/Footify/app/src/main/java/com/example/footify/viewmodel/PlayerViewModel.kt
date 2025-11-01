@@ -124,8 +124,15 @@ class PlayerViewModel : ViewModel() {
                 allPlayers
             } else {
                 allPlayers.filter { player ->
-                    player.name.startsWith(query, ignoreCase = true) ||
-                    player.position.displayName.startsWith(query, ignoreCase = true)
+                    // Split name into first and last name
+                    val nameParts = player.name.trim().split(" ", limit = 2)
+                    val firstName = nameParts.getOrElse(0) { "" }
+                    val lastName = nameParts.getOrElse(1) { "" }
+                    
+                    // Check if query matches first name, last name or full name
+                    firstName.startsWith(query, ignoreCase = true) ||
+                    lastName.startsWith(query, ignoreCase = true) ||
+                    player.name.startsWith(query, ignoreCase = true)
                 }
             }
             _filteredPlayers.value = filtered
