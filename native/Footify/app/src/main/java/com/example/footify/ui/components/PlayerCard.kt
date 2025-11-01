@@ -39,7 +39,8 @@ fun PlayerCard(
                 .fillMaxWidth()
                 .padding(horizontal = 16.dp, vertical = 4.dp),
             shape = RoundedCornerShape(12.dp),
-            elevation = CardDefaults.cardElevation(defaultElevation = 4.dp)
+            elevation = CardDefaults.cardElevation(defaultElevation = 4.dp),
+            colors = CardDefaults.cardColors(containerColor = Color(0xFFF5F5F5))
         ) {
             Row(
                 modifier = Modifier
@@ -51,7 +52,7 @@ fun PlayerCard(
                     modifier = Modifier
                         .size(60.dp)
                         .clip(CircleShape)
-                        .background(MaterialTheme.colorScheme.primaryContainer)
+                        .background(Color(0xFF6A4C93))
                 ) {
                     if (player.image.isNotEmpty()) {
                         AsyncImage(
@@ -69,7 +70,7 @@ fun PlayerCard(
                             modifier = Modifier
                                 .fillMaxSize()
                                 .padding(12.dp),
-                            tint = MaterialTheme.colorScheme.onPrimaryContainer
+                            tint = Color.White
                         )
                     }
                 }
@@ -84,12 +85,13 @@ fun PlayerCard(
                     Text(
                         text = player.name,
                         style = MaterialTheme.typography.titleMedium,
-                        fontWeight = FontWeight.Bold
+                        fontWeight = FontWeight.Bold,
+                        color = Color(0xFF6A4C93)
                     )
                     Text(
                         text = player.position.displayName,
                         style = MaterialTheme.typography.bodyMedium,
-                        color = MaterialTheme.colorScheme.onSurfaceVariant
+                        color = Color.Gray
                     )
                 }
 
@@ -136,10 +138,9 @@ fun PlayerCard(
 @Composable
 private fun getRatingColor(rating: Double): Color {
     return when {
-        rating >= 9.0 -> Color(0xFF4CAF50) // Green
-        rating >= 8.0 -> Color(0xFF8BC34A) // Light Green
-        rating >= 7.0 -> Color(0xFFFFC107) // Amber
-        rating >= 6.0 -> Color(0xFFFF9800) // Orange
+        rating >= 9.0 -> Color(0xFF2196F3) // Blue
+        rating >= 8.0 -> Color(0xFF4CAF50) // Green
+        rating >= 6.0 -> Color(0xFFFFEB3B) // Yellow
         else -> Color(0xFFF44336) // Red
     }
 }

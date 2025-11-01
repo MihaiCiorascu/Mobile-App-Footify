@@ -1,14 +1,17 @@
 package com.example.footify.ui.screens
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.runtime.livedata.observeAsState
@@ -33,17 +36,19 @@ fun PlayerListScreen(
     Column(
         modifier = modifier
             .fillMaxSize()
+            .background(Color.White)
             .padding(16.dp)
     ) {
         Text(
             text = "Hello!",
             style = MaterialTheme.typography.bodyLarge,
-            color = MaterialTheme.colorScheme.onSurfaceVariant
+            color = Color(0xFF6A4C93)
         )
         Text(
             text = "Welcome Back!",
             style = MaterialTheme.typography.headlineMedium,
-            fontWeight = FontWeight.Bold
+            fontWeight = FontWeight.Bold,
+            color = Color(0xFF6A4C93)
         )
         
         Spacer(modifier = Modifier.height(16.dp))
@@ -57,11 +62,18 @@ fun PlayerListScreen(
             leadingIcon = {
                 Icon(
                     imageVector = Icons.Default.Search,
-                    contentDescription = "Search"
+                    contentDescription = "Search",
+                    tint = Color(0xFF6A4C93)
                 )
             },
             singleLine = true,
-            shape = MaterialTheme.shapes.medium
+            shape = RoundedCornerShape(8.dp),
+            colors = OutlinedTextFieldDefaults.colors(
+                focusedBorderColor = Color(0xFF8B7BA6),
+                unfocusedBorderColor = Color(0xFF8B7BA6),
+                focusedTextColor = Color(0xFF6A4C93),
+                unfocusedTextColor = Color(0xFF6A4C93)
+            )
         )
         
         Spacer(modifier = Modifier.height(24.dp))
@@ -70,7 +82,8 @@ fun PlayerListScreen(
         Text(
             text = "Recent Player Performances",
             style = MaterialTheme.typography.titleLarge,
-            fontWeight = FontWeight.Bold
+            fontWeight = FontWeight.Bold,
+            color = Color(0xFF6A4C93)
         )
         
         Spacer(modifier = Modifier.height(16.dp))
@@ -84,7 +97,7 @@ fun PlayerListScreen(
                 Text(
                     text = if (searchQuery.isBlank()) "No players found" else "No players match your search",
                     style = MaterialTheme.typography.bodyLarge,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                    color = Color.Gray
                 )
             }
         } else {
