@@ -7,7 +7,7 @@ object PlayerMapper {
         val id = if (player.id.isNotEmpty()) {
             try {
                 player.id.toLong()
-            } catch (e: NumberFormatException) {
+            } catch (_: NumberFormatException) {
                 0L
             }
         } else {

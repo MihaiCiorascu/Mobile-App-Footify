@@ -7,7 +7,6 @@ import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.map
 import com.example.footify.data.AppDatabase
-import com.example.footify.data.PlayerEntity
 import com.example.footify.data.PlayerMapper
 import com.example.footify.model.Player
 import kotlinx.coroutines.Dispatchers

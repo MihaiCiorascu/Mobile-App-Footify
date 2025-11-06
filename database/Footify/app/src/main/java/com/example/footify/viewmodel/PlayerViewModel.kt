@@ -81,7 +81,7 @@ class PlayerViewModel(application: Application) : AndroidViewModel(application) 
                         observer?.let { _playersSource.removeObserver(it) }
                     }
                 }
-                observer?.let { _playersSource.observeForever(it) }
+                observer.let { _playersSource.observeForever(it) }
             } catch (e: Exception) {
                 Log.e("PlayerViewModel", "Error in initialization", e)
                 _errorMessage.value = "Failed to load players: ${e.message}"
