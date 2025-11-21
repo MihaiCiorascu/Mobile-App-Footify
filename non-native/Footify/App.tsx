@@ -1,10 +1,3 @@
-/**
- * Footify - Football Player Management App
- * React Native Implementation
- *
- * @format
- */
-
 import React, {useState} from 'react';
 import {StatusBar, useColorScheme, SafeAreaView} from 'react-native';
 import {PlayerProvider, usePlayerContext} from './src/context/PlayerContext';

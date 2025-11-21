@@ -17,10 +17,8 @@ class PlayerViewModel(application: Application) : AndroidViewModel(application) 
     
     private val repository = PlayerRepository(application)
     
-    // Values retrieved only once and reused while app is alive - using LiveData from repository
     private val _playersSource: LiveData<List<Player>> = repository.getAllPlayers()
     
-    // Observe read errors from repository
     private val _readError = MutableLiveData<String?>()
     val readError: LiveData<String?> = _readError
     
@@ -28,7 +26,6 @@ class PlayerViewModel(application: Application) : AndroidViewModel(application) 
     val searchQuery: LiveData<String> = _searchQuery
     
     init {
-        // Observe repository read errors
         repository.readError.observeForever { error ->
             if (error != null) {
                 Log.e("PlayerViewModel", "Read operation error: $error")
@@ -38,7 +35,6 @@ class PlayerViewModel(application: Application) : AndroidViewModel(application) 
         }
     }
     
-    // Filtered players that update automatically when players or search query changes
     val filteredPlayers: LiveData<List<Player>> = MediatorLiveData<List<Player>>().apply {
         fun updateFiltered() {
             val allPlayers = _playersSource.value ?: emptyList()
@@ -55,17 +51,14 @@ class PlayerViewModel(application: Application) : AndroidViewModel(application) 
         addSource(_searchQuery) { updateFiltered() }
     }
     
-    // Expose players for other uses
     val players: LiveData<List<Player>> = _playersSource
     
-    // Error handling
     private val _errorMessage = MutableLiveData<String?>()
     val errorMessage: LiveData<String?> = _errorMessage
     
     private var isInitialized = false
     
     init {
-        // Initialize sample data only once if database is empty
         // Data is retrieved in a coroutine (separate thread) via Room and observed via LiveData
         viewModelScope.launch {
             try {
@@ -93,8 +86,7 @@ class PlayerViewModel(application: Application) : AndroidViewModel(application) 
         viewModelScope.launch {
             try {
                 val baseTime = Date()
-                // Create timestamps in reverse order so first player (Lionel Messi) has the newest timestamp
-                // This ensures they appear first when ordering by createdAt DESC
+
                 val samplePlayers = listOf(
                     Player(
                         id = "",
@@ -105,7 +97,7 @@ class PlayerViewModel(application: Application) : AndroidViewModel(application) 
                         shirtNumber = 10,
                         goals = 851,
                         image = "",
-                        createdAt = Date(baseTime.time + 7000), // Newest - appears first
+                        createdAt = Date(baseTime.time + 7000),
                         updatedAt = Date(baseTime.time + 7000)
                     ),
                     Player(
@@ -177,12 +169,11 @@ class PlayerViewModel(application: Application) : AndroidViewModel(application) 
                         shirtNumber = 11,
                         goals = 45,
                         image = "",
-                        createdAt = Date(baseTime.time + 1000), // Oldest
+                        createdAt = Date(baseTime.time + 1000),
                         updatedAt = Date(baseTime.time + 1000)
                     )
                 )
                 
-                // Insert all sample players into database sequentially to ensure proper order
                 samplePlayers.forEach { player ->
                     repository.insertPlayer(player).fold(
                         onSuccess = { /* Successfully inserted */ },
@@ -200,7 +191,6 @@ class PlayerViewModel(application: Application) : AndroidViewModel(application) 
     
     fun searchPlayers(query: String) {
         _searchQuery.value = query
-        // Filtered players will automatically update through MediatorLiveData
     }
     
     private fun filterPlayers(players: List<Player>, query: String): List<Player> {
@@ -223,7 +213,7 @@ class PlayerViewModel(application: Application) : AndroidViewModel(application) 
         viewModelScope.launch {
             try {
                 val newPlayer = Player(
-                    id = "", // ID will be managed by database
+                    id = "",
                     name = name,
                     age = age,
                     position = position,
@@ -238,7 +228,6 @@ class PlayerViewModel(application: Application) : AndroidViewModel(application) 
                 repository.insertPlayer(newPlayer).fold(
                     onSuccess = { 
                         Log.d("PlayerViewModel", "Player added successfully: $name")
-                        // LiveData will automatically update through repository
                     },
                     onFailure = { e ->
                         Log.e("PlayerViewModel", "Error adding player: $name", e)
@@ -262,7 +251,6 @@ class PlayerViewModel(application: Application) : AndroidViewModel(application) 
                 repository.updatePlayer(playerWithUpdatedTimestamp).fold(
                     onSuccess = {
                         Log.d("PlayerViewModel", "Player updated successfully: ${updatedPlayer.name}")
-                        // LiveData will automatically update through repository
                     },
                     onFailure = { e ->
                         Log.e("PlayerViewModel", "Error updating player: ${updatedPlayer.name}", e)
@@ -290,7 +278,6 @@ class PlayerViewModel(application: Application) : AndroidViewModel(application) 
                 repository.deletePlayerById(playerIdLong).fold(
                     onSuccess = {
                         Log.d("PlayerViewModel", "Player deleted successfully: $playerId")
-                        // LiveData will automatically update through repository
                     },
                     onFailure = { e ->
                         Log.e("PlayerViewModel", "Error deleting player: $playerId", e)
@@ -311,6 +298,5 @@ class PlayerViewModel(application: Application) : AndroidViewModel(application) 
     
     override fun onCleared() {
         super.onCleared()
-        // Repository LiveData will be automatically cleaned up
     }
 }

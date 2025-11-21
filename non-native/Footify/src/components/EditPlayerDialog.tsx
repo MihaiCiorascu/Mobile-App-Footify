@@ -70,7 +70,6 @@ export const EditPlayerDialog: React.FC<EditPlayerDialogProps> = ({
                 showsVerticalScrollIndicator={false}>
                 <Text style={styles.dialogTitle}>Edit:</Text>
 
-                {/* Player Name Field */}
                 <View style={styles.fieldContainer}>
                   <Text style={styles.fieldLabel}>Player Name</Text>
                   <TextInput
@@ -82,7 +81,6 @@ export const EditPlayerDialog: React.FC<EditPlayerDialogProps> = ({
                   />
                 </View>
 
-                {/* Shirt Number Field */}
                 <View style={styles.fieldContainer}>
                   <Text style={styles.fieldLabel}>Shirt number</Text>
                   <TextInput
@@ -101,7 +99,6 @@ export const EditPlayerDialog: React.FC<EditPlayerDialogProps> = ({
                   ) : null}
                 </View>
 
-                {/* Position Field */}
                 <View style={styles.fieldContainer}>
                   <Text style={styles.fieldLabel}>Position</Text>
                   <TouchableOpacity
@@ -136,7 +133,6 @@ export const EditPlayerDialog: React.FC<EditPlayerDialogProps> = ({
                   )}
                 </View>
 
-                {/* Save Button */}
                 <TouchableOpacity
                   style={[
                     styles.saveButton,

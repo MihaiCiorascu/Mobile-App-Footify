@@ -15,21 +15,16 @@ import kotlinx.coroutines.withContext
 class PlayerRepository(context: Context) {
     private val database = AppDatabase.getDatabase(context)
     private val playerDao = database.playerDao()
-    
-    // Error LiveData for read operation failures
+
     private val _readError = MutableLiveData<String?>()
     val readError: LiveData<String?> = _readError
 
-    // Get all players as LiveData - retrieved only once and reused
-    // Wrapped with error handling to catch database query failures
     fun getAllPlayers(): LiveData<List<Player>> {
         val result = MediatorLiveData<List<Player>>()
         
         try {
-            // Get the LiveData from Room
             val roomLiveData = playerDao.getAllPlayers()
-            
-            // Map entities to domain models with error handling
+
             val mappedLiveData = roomLiveData.map { entities ->
                 try {
                     PlayerMapper.toDomainList(entities)
@@ -39,12 +34,10 @@ class PlayerRepository(context: Context) {
                     emptyList()
                 }
             }
-            
-            // Observe the mapped LiveData with error handling
+
             result.addSource(mappedLiveData) { players ->
                 try {
                     result.value = players
-                    // Clear error on successful read
                     _readError.postValue(null)
                 } catch (e: Exception) {
                     Log.e("PlayerRepository", "Error retrieving players from database", e)
@@ -53,7 +46,6 @@ class PlayerRepository(context: Context) {
                 }
             }
         } catch (e: Exception) {
-            // Catch errors when creating the query (database corruption, etc.)
             Log.e("PlayerRepository", "Error creating player query", e)
             _readError.postValue("Failed to access database: ${e.message}")
             result.value = emptyList()
@@ -62,7 +54,6 @@ class PlayerRepository(context: Context) {
         return result
     }
 
-    // Get player by ID in a coroutine
     suspend fun getPlayerById(playerId: Long): Player? {
         return try {
             withContext(Dispatchers.IO) {

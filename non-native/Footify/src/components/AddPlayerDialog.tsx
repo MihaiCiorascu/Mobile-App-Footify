@@ -113,7 +113,6 @@ export const AddPlayerDialog: React.FC<AddPlayerDialogProps> = ({
                 showsVerticalScrollIndicator={false}>
                 <Text style={styles.dialogTitle}>Add Player</Text>
 
-                {/* Player Name Field */}
                 <View style={styles.fieldContainer}>
                   <Text style={styles.fieldLabel}>Player Name</Text>
                   <TextInput
@@ -125,7 +124,6 @@ export const AddPlayerDialog: React.FC<AddPlayerDialogProps> = ({
                   />
                 </View>
 
-                {/* Age Field */}
                 <View style={styles.fieldContainer}>
                   <Text style={styles.fieldLabel}>Age</Text>
                   <TextInput
@@ -144,7 +142,6 @@ export const AddPlayerDialog: React.FC<AddPlayerDialogProps> = ({
                   ) : null}
                 </View>
 
-                {/* Position Field */}
                 <View style={styles.fieldContainer}>
                   <Text style={styles.fieldLabel}>Position</Text>
                   <TouchableOpacity
@@ -179,7 +176,6 @@ export const AddPlayerDialog: React.FC<AddPlayerDialogProps> = ({
                   )}
                 </View>
 
-                {/* Shirt Number Field */}
                 <View style={styles.fieldContainer}>
                   <Text style={styles.fieldLabel}>Shirt number</Text>
                   <TextInput
@@ -198,7 +194,6 @@ export const AddPlayerDialog: React.FC<AddPlayerDialogProps> = ({
                   ) : null}
                 </View>
 
-                {/* Buttons */}
                 <View style={styles.buttonRow}>
                   <TouchableOpacity
                     style={[styles.button, styles.cancelButton]}

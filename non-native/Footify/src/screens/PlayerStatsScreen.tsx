@@ -27,14 +27,12 @@ export const PlayerStatsScreen: React.FC<PlayerStatsScreenProps> = ({
 
   return (
     <View style={styles.container}>
-      {/* Top Bar with Back Button */}
       <View style={styles.topBar}>
         <TouchableOpacity onPress={onBackClick} style={styles.backButton}>
           <Text style={styles.backButtonText}>←</Text>
         </TouchableOpacity>
       </View>
 
-      {/* Header Section with Purple Background */}
       <View style={styles.headerSection}>
         <View style={styles.headerContent}>
           <View style={styles.playerInfo}>
@@ -57,11 +55,10 @@ export const PlayerStatsScreen: React.FC<PlayerStatsScreenProps> = ({
         </View>
 
         <TouchableOpacity onPress={onEditClick} style={styles.editButton}>
-          <Text style={styles.editButtonText}>✎</Text>
+          <Text style={styles.editButtonText}>✏️</Text>
         </TouchableOpacity>
       </View>
 
-      {/* Stats Section */}
       <ScrollView style={styles.statsSection} contentContainerStyle={styles.statsContent}>
         <View style={styles.statsRow}>
           <StatCard value={player.goals.toString()} label="Goals" />
